@@ -16,3 +16,7 @@ waveletAnalysis.py and waveletFunctions.py are related to above-mentioned articl
 Following python packages must be installed on the system:
 
 scipy, numpy, obspy
+
+# Reference
+
+Soon to be announced
