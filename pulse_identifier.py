@@ -301,15 +301,12 @@ def vel_wf_detector(st, scale = 1, zero_adding = False):
     is_pulse_dz = r1[amax]
     late = r5[amax]
 
-    #if late == 1:
-      #print('TOO LATE!')
-
     if is_pulse_dz == 1:
       wavelet_type = amax
     elif is_pulse_dz == 0:
      wavelet_type = 0
   else:
-    _, _, p_e, spec_p_e, _, _, _, _,_, _, _, _, _ = analysis(data,times,dt,PGV,PGV_pos,method = 'Ricker')
+#     _, _, p_e, spec_p_e, _, _, _, _,_, _, _, _, _ = analysis(data,times,dt,PGV,PGV_pos,method = 'Ricker')
     is_pulse_dz = 0
     p_e = float('NaN')
     spec_p_e = float('NaN')
