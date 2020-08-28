@@ -25,7 +25,7 @@ def morlet(f,dt,data,order = 4):
   '''
   This function will produce morlet wavelet with a given order
   '''
-  time = np.linspace(-len(data)/2, (len(data)-dt)/2, len(data)/dt)
+  time = np.linspace(-len(data)/2, (len(data)-dt)/2, int(len(data)/dt))
   # Sinus Wave
   sine_wave = np.exp(2*np.pi*complex(1j)*f*time) 
   s = order/(2*np.pi*f)
@@ -54,7 +54,7 @@ def morlet_maxpos(f, dt,data,max_pos,EMAX_GV,order = 4):
   '''
   This function will produce morlet wavelet with a given order
   '''
-  time = np.linspace(-len(data)/2, (len(data)-dt)/2, len(data)/dt)
+  time = np.linspace(-len(data)/2, (len(data)-dt)/2, int(len(data)/dt))
   # Sinus Wave
   sine_wave = np.exp(2*np.pi*complex(1j)*f*time) 
   s = order/(2*np.pi*f)
@@ -99,7 +99,7 @@ def shift(arr, num, fill_value=np.nan):
 
 def ricker(f, dt,data):
   ''' ricker wavelet '''
-  t = np.linspace(-len(data)/2, (len(data)-dt)/2, len(data)/dt)
+  t = np.linspace(-len(data)/2, (len(data)-dt)/2, int(len(data)/dt))
   y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
   # Shifting Ricker wavelet to match PGV positions
   PGV, PGV_pos = pgv_pos_finder(data)
@@ -300,7 +300,7 @@ def vel_wf_detector(st, scale = 1, zero_adding = False):
     Tp = r2[amax]
     is_pulse_dz = r1[amax]
     late = r5[amax]
-
+    fit_wavelet = r7[amax]
     if is_pulse_dz == 1:
       wavelet_type = amax
     elif is_pulse_dz == 0:
@@ -313,5 +313,5 @@ def vel_wf_detector(st, scale = 1, zero_adding = False):
     Tp = 0
     late = float('NaN')
     wavelet_type = float('NaN')
-  
-  return p_e, spec_p_e, Tp, is_pulse_dz, late, wavelet_type
+    fit_wavelet = False
+  return p_e, spec_p_e, Tp, is_pulse_dz, late, wavelet_type, fit_wavelet
