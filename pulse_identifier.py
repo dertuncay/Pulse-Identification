@@ -119,7 +119,7 @@ def ricker(f, dt,data):
 
 def ricker_maxpos(f, dt,data,max_pos,EMAX_GV):
   ''' ricker wavelet '''
-  t = np.linspace(-len(data)/2, (len(data)-dt)/2, len(data)/dt)
+  t = np.linspace(-len(data)/2, (len(data)-dt)/2, int(len(data)/dt))
   y = (1.-2.*(np.pi**2)*(f**2)*(t**2))*np.exp(-(np.pi**2)*(f**2)*(t**2))
   # Shifting Ricker wavelet to match PGV positions
   _, ricker_PGV_pos = pgv_pos_finder(y)
