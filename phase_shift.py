@@ -30,10 +30,10 @@ def ricker_with_phase(f, dt,data, phase):
   ricker_phased = np.cos(phase)*re - np.sin(phase)*im;
   
   # Find Time Shift
-  af = scipy.fft(data)
-  bf = scipy.fft(ricker_phased)
+  af = scipy.fft.ftt(data)
+  bf = scipy.fft.fft(ricker_phased)
 
-  c = scipy.ifft(af[:len(af)//2] * scipy.conj(bf[:len(bf)//2]))
+  c = scipy.ifft(af[:len(af)//2] * np.conj(bf[:len(bf)//2]))
   time_shift = np.argmax(abs(c))
   
   # Shift the wavelet
