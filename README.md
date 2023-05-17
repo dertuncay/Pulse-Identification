@@ -23,3 +23,5 @@ Following python packages must be installed on the system:
 # Citation
 
 Ertuncay, Deniz, and Giovanni Costa. "An alternative pulse classification algorithm based on multiple wavelet analysis." Journal of Seismology 23.4 (2019): 929-942. https://doi.org/10.1007/s10950-019-09845-y
+
+[![DOI](https://zenodo.org/badge/137078895.svg)](https://zenodo.org/badge/latestdoi/137078895)
